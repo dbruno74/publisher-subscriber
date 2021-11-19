@@ -3,11 +3,11 @@ The ROS publisher/subscriber example packaged as a snap, based on ROS Noetic and
 This example is available on ROS wiki, [here](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29).
 
 ## build
-Just launch ```snapcraft``` from top dir, it will create the snap ```publisher-subscriber_0.1_amd64.snap```
+Just launch ```snapcraft``` from top dir, it will create the snap ```publisher-subscriber_0.1_xxxx.snap```
 
 ## install
 ```
-snap install publisher-subscriber_0.1_amd64.snap --dangerous
+snap install publisher-subscriber_0.1_xxxx.snap --dangerous
 ```
 In case you want to remove some annoying printouts complaining about not being able to create temp cache, connect the following interfaces:
 ```
