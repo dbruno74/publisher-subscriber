@@ -28,24 +28,19 @@ apps:
   talker:
     # Use talker.py if you followed the Python tutorial
     command: opt/ros/noetic/bin/rosrun beginner_tutorials talker.py
-    plugs: 
+    plugs:
        - network
        - network-bind
-       - ros-home 
     extensions: [ros1-noetic]
+    environment:
+      "ROS_HOME": "$SNAP_USER_DATA" # remap ROS_HOME for rospack temporary cache file
 
   listener:
     # Use listener.py if you followed the Python tutorial
     command: opt/ros/noetic/bin/rosrun beginner_tutorials listener.py
-    plugs: 
+    plugs:
        - network
        - network-bind
-       - ros-home
     extensions: [ros1-noetic]
-
-plugs:
-  ros-home:
-     interface: personal-files
-     write: [ $HOME/.ros ]
-  home: 
-    read: all 
+    environment:
+      "ROS_HOME": "$SNAP_USER_DATA" # remap ROS_HOME for rospack temporary cache file
