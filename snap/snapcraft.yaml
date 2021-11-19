@@ -1,0 +1,49 @@
+name: publisher-subscriber
+base: core20
+version: '0.1'
+summary: ROS Example
+description: |
+  The ROS publisher/subscriber example packaged as a snap.
+
+grade: stable
+confinement: strict
+
+parts:
+  workspace:
+    plugin: catkin
+    source: .
+    catkin-packages: [beginner_tutorials]
+    stage-packages: 
+       - ros-noetic-rosbash # for rosrun
+       - ros-noetic-ros-base
+
+apps:
+  roscore:
+    command: opt/ros/noetic/bin/roscore
+    plugs: [network, network-bind]
+    extensions: [ros1-noetic]
+
+  talker:
+    # Use talker.py if you followed the Python tutorial
+    command: opt/ros/noetic/bin/rosrun beginner_tutorials talker.py
+    plugs: 
+       - network
+       - network-bind
+       - ros-home 
+    extensions: [ros1-noetic]
+
+  listener:
+    # Use listener.py if you followed the Python tutorial
+    command: opt/ros/noetic/bin/rosrun beginner_tutorials listener.py
+    plugs: 
+       - network
+       - network-bind
+       - ros-home
+    extensions: [ros1-noetic]
+
+plugs:
+  ros-home:
+     interface: personal-files
+     write: [ $HOME/.ros ]
+  home: 
+    read: all 
