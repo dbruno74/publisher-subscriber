@@ -13,11 +13,11 @@ parts:
     plugin: catkin
     source: .
     catkin-packages: [beginner_tutorials]
-    build-packages: 
+    build-packages:
        - build-essential
-    stage-packages: 
+    stage-packages:
        - ros-noetic-rosbash # for rosrun
-       - ros-noetic-ros-base
+       - ros-noetic-roslaunch # for roscore
 
 apps:
   roscore:
