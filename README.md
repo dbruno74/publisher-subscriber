@@ -9,11 +9,6 @@ Just launch ```snapcraft``` from top dir, it will create the snap ```publisher-s
 ```
 snap install publisher-subscriber_0.1_xxxx.snap --dangerous
 ```
-In case you want to remove some annoying printouts complaining about not being able to create temp cache, connect the following interfaces:
-```
-snap connect publisher-subscriber:ros-home
-snap connect publisher-subscriber:home
-```
 
 ## run
 Open a shell then launch roscore
